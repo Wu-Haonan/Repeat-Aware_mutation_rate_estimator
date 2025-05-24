@@ -106,7 +106,7 @@ python Mutation_rate_estimator.py \
   --mode kmer \
   --input1 set1.fasta \
   --input2 set2.fasta \
-  --dist occ.csv \
+  --dist histogram.csv \
   --k 31
 ```
 
