@@ -53,7 +53,7 @@ python Mutation_rate_estimator.py \
   --mode kmer \
   --input1 example_data/origin_kmers.fasta \
   --input2 example_data/mutated_kmers.fasta \
-  --dist example_data/dish.csv \
+  --dist example_data/histogram.csv \
   --k 31 \
   --theta 0.01
 ```
