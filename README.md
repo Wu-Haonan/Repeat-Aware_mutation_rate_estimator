@@ -2,7 +2,7 @@
 
 This tool estimates the mutation rate between two sets of sequences, such as two reference or assembly genomes, or an assembly genome and raw sequencing reads. The method is designed to be robust to input sequences with high repetitiveness.
 
-This repository builds upon the ideas of [this work](https://github.com/medvedevgroup/Repeat-Aware_Substitution_Rate_Estimator/), with substantial optimizations for scalability and speed. By leveraging KMC for k-mer counting and sourmash for sketching, our implementation enables fast mutation rate estimation between two ~3GB genomes in approximately 10 minutes of wall-clock time (with k=31 and `theta`=0.01).
+This repository builds upon the ideas of [this work](https://github.com/medvedevgroup/Repeat-Aware_Substitution_Rate_Estimator/), with substantial optimizations for scalability and speed. By leveraging KMC for k-mer counting and sourmash for sketching, our implementation enables fast mutation rate estimation between two ~3GB genomes in approximately 10 minutes of wall-clock time, using `k`=31 and a FracMinHash sketching rate of `theta`=0.01.
 
 ---
 
