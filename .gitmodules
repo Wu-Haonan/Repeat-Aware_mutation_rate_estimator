@@ -1,3 +1,6 @@
 [submodule "external/kmc"]
 	path = external/kmc
 	url = https://github.com/refresh-bio/KMC.git
+[submodule "external/KMC"]
+	path = external/KMC
+	url = https://github.com/refresh-bio/KMC.git
