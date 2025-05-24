@@ -1,6 +1,6 @@
 # Repeat-Aware_mutation_rate_estimator
 
-This tool estimates the substitution rate between two set of sequences (e.g., two genomes, or raw sequencing reads). Our method is robust to the input sequences with high repetitiveness.
+This tool estimates the mutation rate between two sets of sequences (e.g., two genomes, or raw sequencing reads). Our method is robust to input sequences with high repetitiveness.
 
 This repository builds upon the ideas from [this work](https://github.com/medvedevgroup/Repeat-Aware_Substitution_Rate_Estimator/tree/main), with significant optimizations. It enables faster computation of mutation rates (genomic distances) between two whole genomes, leveraging KMC and other mature tools. 
 
