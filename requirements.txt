@@ -1,0 +1,6 @@
+kmc
+sourmash>=4.8
+numpy
+scipy
+pandas
+
