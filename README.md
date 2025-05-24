@@ -1,8 +1,8 @@
 # Repeat-Aware_mutation_rate_estimator
 
-This tool estimates the mutation rate between two sets of sequences (e.g., two genomes, or raw sequencing reads). Our method is robust to input sequences with high repetitiveness.
+This tool estimates the mutation rate between two sets of sequences, such as two reference or assembly genomes, or an assembly genome and raw sequencing reads. The method is designed to be robust to input sequences with high repetitiveness.
 
-This repository builds upon the ideas from [this work](https://github.com/medvedevgroup/Repeat-Aware_Substitution_Rate_Estimator/tree/main), with significant optimizations. It enables faster computation of mutation rates (genomic distances) between two whole genomes, leveraging KMC and other mature tools. 
+This repository builds upon the ideas of [this work](https://github.com/medvedevgroup/Repeat-Aware_Substitution_Rate_Estimator/), with substantial optimizations for scalability and speed. By leveraging KMC for k-mer counting and sourmash for sketching, our implementation enables fast mutation rate estimation between two ~3GB genomes in approximately 10 minutes of wall-clock time.
 
 ---
 
@@ -106,7 +106,7 @@ python Mutation_rate_estimator.py \
   --mode kmer \
   --input1 set1.fasta \
   --input2 set2.fasta \
-  --dist histogram.csv \
+  --dist occ.csv \
   --k 31
 ```
 
@@ -136,3 +136,14 @@ Note: Sketching could significantly accelerate large-scale computation. In this 
 Note that sourmash requires a `--scaled` parameter of at least 100, which corresponds to a `theta` value of at most $0.01$ here. If you provide a larger `theta`, sourmash will automatically enforce it to be 0.01.
 
 If you prefer exact intersection computation or are working with smaller datasets, we recommend using the original version [Repeat-Aware_Substitution_Rate_Estimator](https://github.com/medvedevgroup/Repeat-Aware_Substitution_Rate_Estimator). However, for large-scale data, we highly recommend using this sketch-based tool for its speed and scalability.
+
+
+
+## Other Parameters
+
+1. `--k`: The k-mer size, which must be an integer between 1 and 256 due to limitations of [KMC](https://github.com/refresh-bio/KMC). In practice, larger values of `k` are not useful, so this range is expected to be sufficient for most use cases.
+
+2. `--cleanup`: If specified, all intermediate files generated during execution (such as KMC databases and sketch files) will be removed automatically after the program finishes.
+
+3. `--use-dump`: By default, we call the C++ program `./cpp/kmc_histogram.cpp`, which uses the KMC API to read the kmc database and generate the abundance histogram directly in csv format—avoiding the overhead of dumping the k-mer count file to disk. If you specify `--use-dump`, the program will instead call `kmc_dump` to generate the full k-mer count file and then read it from disk. This may increase both runtime and disk space usage. If you want to retain the dumped k-mer count file, avoid using `--cleanup`.
+
