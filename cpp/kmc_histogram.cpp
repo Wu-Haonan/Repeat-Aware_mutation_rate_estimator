@@ -67,7 +67,6 @@ int main(int argc, char* argv[]) {
     out.close();
 
     std::cout << "Success!" << std::endl;
-    std::cout << "Found " << hist.size() << " different kmers" << std::endl;
 
     return 0;
 }
