@@ -8,6 +8,16 @@ This repository builds upon the ideas of [this work](https://github.com/medvedev
 
 ## Installation
 
+### Git Clone with Submodules
+
+```bash 
+- Method 1: Clone with submodules in one step (recommended) 
+git clone --recurse-submodules https://github.com/your-username/your-repo 
+- Method 2: Clone first, then initialize submodules git clone https://github.com/your-username/your-repo cd your-repo git submodule update --init --recursive
+```
+
+### Install required packages using Conda
+
 We recommend using Conda to set up the environment:
 
 
@@ -18,7 +28,16 @@ conda create -n <env_name> python=3.10 --file requirements.txt -c conda-forge -c
 conda activate <env_name>
 ```
 
+### Compile `kmc_histogram.cpp`
+
+```bash
+cd ./cpp/
+make
+```
+
 ---
+
+
 
 ## Example Usage
 
