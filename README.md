@@ -12,8 +12,11 @@ This repository builds upon the ideas of [this work](https://github.com/medvedev
 
 ```bash 
 - Method 1: Clone with submodules in one step (recommended) 
-git clone --recurse-submodules https://github.com/your-username/your-repo 
-- Method 2: Clone first, then initialize submodules git clone https://github.com/your-username/your-repo cd your-repo git submodule update --init --recursive
+git clone --recurse-submodules git@github.com:Wu-Haonan/Repeat-Aware_mutation_rate_estimator.git
+- Method 2: Clone first, then initialize submodules 
+git clone git@github.com:Wu-Haonan/Repeat-Aware_mutation_rate_estimator.git 
+cd Repeat-Aware_mutation_rate_estimator 
+git submodule update --init --recursive
 ```
 
 ### Install required packages using Conda
